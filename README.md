@@ -105,7 +105,7 @@ USERNAME = Le login que vous avez utilisé lors de la création de votre site.
 PASSWORD = Le mot de passe que vous avez utilisé lors de la création de votre site.
 SSH_KEY = L'intégralité de la clé privée ci-dessous (depuis ----BEGIN jusqu'à KEY-----)
 
-```C
+```
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
 QyNTUxOQAAACC4LTWO3FUlXJLlxmPXy2enZnARnnqRgZ6+7lzNvwL7OwAAAJBn8JtCZ/Cb
@@ -145,7 +145,6 @@ ALWAYSDATA_SITE_ID = Vous trouverez l'ID de votre site depuis l'interface d'admi
 Notions acquises de cette séquence :
 Nous avons vu dans cette séquence comment créer des actions dans GiHUB (industrialisation continue). Nous avons créé des secrets ainsi que des clés public et privée.
 
-```
 ---------------------------------------------------------------------------------------------
 Séquence 3 : Les Actions GitHUB (Industrialisation Continue)
 ---------------------------------------------------------------------------------------------
