@@ -21,7 +21,7 @@ Si besoin, une vidéo pour vous aider à créer votre propre compte GitHUB : [Cr
 A noter que **si vous possédez déjà un compte GitHUB, vous pouvez le conserver pour réaliser cet atelier**. Pas besion d'en créer un nouveau.  
 Remarque importante : **Lors de votre inscription, utilisez une adresse mail valide. GitHUB n'accepte pas les adresses mails temporaires**  
 
-2° - Faites un Fork du Repository suivant : https://github.com/OpenRSI/flask_hello_world.git  
+2° - Faites un Fork du Repository suivant : [MSPR_CLO855](https://github.com/bstocker/MSPR_CLOE855)  
 Voici une vidéo d'accompagnement pour vous aider dans les "Forks" : [Forker ce projet](https://youtu.be/p33-7XQ29zQ)    
   
 **Travail demandé :** Créé votre compte GitHUB, faites le fork de ce projet et **copier l'URL de votre Repository GitHUB dans la discussion public**.
@@ -65,7 +65,7 @@ Vous avez créer un hébergement (gratuit) et découvert également que vous pou
 Séquence 3 : Les actions GitHUB (Industrialisation Continue)
 ---------------------------------------------------
 Objectif : Automatiser la mise à jour de votre hébergement Alwaysdata
-Difficulté : Moyen (~1h)
+Difficulté : Moyen (~45 minutes)
 ---------------------------------------------------
 Depuis le repository que vous venez de créer dans GitHUB vous allez à présent créer une Action afin de déployer votre code automatiquement sur votre serveur Alwaysdata via une connexion SSH. Cette action passe par la création d'un fichier **CICD.yml** dans GitHub dont le contenu sera executé à chaque commit des devellopeurs (c'est à dire à chaque modification de votre code dans GitHUB). Ce fichier est à déposer dans le répertoire **.github/workflows/CICD.yml** de votre repository.
 
@@ -95,15 +95,13 @@ jobs:
             curl -X POST --basic --user "${{ secrets.ALWAYSDATA_TOKEN }}:" https://api.alwaysdata.com/v1/site/${{ secrets.ALWAYSDATA_SITE_ID }}/restart/
 ```
 -------------
-Etape 2.2 : Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre repository (vos login/password par exemple). Ci-dessous une vidéo pour vous expliquer le processus de création d'un secret dans GitHUB. Par exemple le création d'un secret HOST_DNS
+Etape 2 : Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre repository (vos login, clés, dns, etc..). Ci-dessous une vidéo pour vous expliquer le processus de création d'un secret dans GitHUB. Par exemple le création d'un secret HOST_DNS
 https://www.youtube.com/watch?v=7CZde1a7rq0
 
 -----
-Les secrets de votre Repository Github que vous devez créer (il y en aura 6 secrets au total) :
-HOST_DNS = ssh-etudiant.alwaysdata.net #Ici etudiant est à modifier sur la base de votre propre compte.
-USERNAME = Le login que vous avez utilisé lors de la création de votre site.
-PASSWORD = Le mot de passe que vous avez utilisé lors de la création de votre site.
-SSH_KEY = L'intégralité de la clé privée ci-dessous (depuis ----BEGIN jusqu'à KEY-----)
+Les secrets de votre Repository Github que vous devez créer (il y en aura **4 secrets au tota**l) :
+**USERNAME** = Le login que vous avez utilisé lors de la création de votre site.
+**SSH_KEY** = L'intégralité de la clé privée ci-dessous (depuis ----BEGIN jusqu'à KEY-----)
 
 ```
 -----BEGIN OPENSSH PRIVATE KEY-----
@@ -115,58 +113,34 @@ cBGeepGBnr7uXM2/Avs7AAAABm5vbmFtZQECAwQFBgc=
 -----END OPENSSH PRIVATE KEY-----
 ```
 
-En revanche la clé public est à déposer directement sur votre serveur Alwaysdata. C'est à dire que vous devez vous connecter en SSH depuis une console sur le serveur Alwaysdata. Pour cette connection en SSH, vous pouvez utiliser le logiciel de votre choix (putty, cmd, ...) ou utiliser directement l'interface web proposé par Alwaysdata. Exemple en cliquant sur le lien suivant https://ssh-etudiant.alwaysdata.net
-Attention !! Vous devez activer la connexion par mot de passe pour votre utilisateur SSH dans Alwasdata (case à cocher).
+En revanche la clé public est à déposer directement sur votre serveur Alwaysdata. C'est à dire que vous devez vous connecter en SSH depuis une console sur le serveur Alwaysdata. Pour cette connection en SSH, vous pouvez utiliser le logiciel de votre choix (putty, cmd, ...) ou utiliser directement l'interface web proposé par Alwaysdata. Exemple en cliquant sur le lien suivant https://ssh-etudiant11.alwaysdata.net
+Attention !! Vous devez activer la connexion par mot de passe pour votre utilisateur SSH dans Alwasdata (Voir paragraphe 3.1 de la séquence 2).
 
 Procédure pour la clé public :
-
-	1.1 - Connectez vous à votre serveur Alwaysdatat via une console ssh (ex : https://ssh-etudiant.alwaysdata.net/). Remarque importante : Activer la connexion par mot de passe pour votre utilisateur SSH.
-        	1.1.1 : Le login est celui de votre compte site (celui en haut à gauche).
-        	1.1.1 : Le mot de passe de compte compte site est à taper en aveugle (le curseur de la console ne bouge pas et c'est normal)
-    	1.2 - Ensuite, toujours depuis cette console SSH, créer à présent le répertoire .ssh en tapant le commande suivante : **mkdir .ssh**
-    	1.3 - Récupérer la clé public en tappant la commande suivant dans la console SSH : **git clone https://github.com/bstocker/keyalwaysdata.git**
-    	1.4 - Déplacer la clé pour la mettre dans le bon répertoire de votre serveur via la commande : **mv keyalwaysdata/authorized_keys .ssh** 
-
+	2.1 - Connectez vous à votre serveur Alwaysdatat via une console ssh (ex : https://ssh-etudiant.alwaysdata.net/). Remarque importante : Activer la connexion par mot de passe pour votre utilisateur SSH.
+		2.1.1 : Le login est celui de votre compte site (celui en haut à gauche).
+        	2.1.1 : Le mot de passe de compte compte site est à taper en aveugle (le curseur de la console ne bouge pas et c'est normal)
+	2.2 - Ensuite, toujours depuis cette console SSH, créer à présent le répertoire .ssh en tapant le commande suivante : **mkdir .ssh**
+	2.3 - Récupérer la clé public en tappant la commande suivant dans la console SSH : **git clone https://github.com/bstocker/keyalwaysdata.git**
+	2.4 - Déplacer la clé pour la mettre dans le bon répertoire de votre serveur via la commande : **mv keyalwaysdata/authorized_keys .ssh** 
+  
 Astuce : Pour coller du texte dans votre navigateur, vous pouvez utiliser la combinaison de touche Ctrl+Shift+v pour coller votre texte.
-
+  
 Pour vérifier que tout est bon et que votre clé public est bien déclarée sur votre serveur, tapez la commande suivante depuis votre console ssh :
 **cat .ssh/authorized_keys** le résultat doit être le suivant :
 ```
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgtNY7cVSVckuXGY9fLZ6dmcBGeepGBnr7uXM2/Avs7 noname
 ```
 
-2° - Génération d'un token :
+3° - Génération d'un token :
 Afin de pouvoir utiliser les API de la solution Alwaysdata (ex une demande de relance serveur dans notre cas), il faut créer un token.
 
-ALWAYSDATA_TOKEN = Le token est à créer depuis l'interface d'administration Alwaysdata. Cliquez sur votre profil en haut à droite, puis sur 'Profil' puis sur 'Gérer les tokens'. Laissez le champ "Adresses IP autorisées" vide. Dans le cas contraire vous limiteriez les connexions seulement une adresse IP. Pour le champ Application* mettez "flask" par exemple.
+**ALWAYSDATA_TOKEN** = Le token est à créer depuis l'interface d'administration Alwaysdata. Cliquez sur votre profil en haut à droite, puis sur 'Profil' puis sur 'Gérer les tokens'. Laissez le champ "Adresses IP autorisées" vide. Dans le cas contraire vous limiteriez les connexions seulement une adresse IP. Pour le champ Application* mettez "flask" par exemple.
 
-ALWAYSDATA_SITE_ID = Vous trouverez l'ID de votre site depuis l'interface d'administration Alwaysdata dans les paramètres de votre site (dans le titre #XXXXX) XXXXX étant l'ID de votre site. Ne prenez pas le # mais juste les chiffres.
-
-Notions acquises de cette séquence :
-Nous avons vu dans cette séquence comment créer des actions dans GiHUB (industrialisation continue). Nous avons créé des secrets ainsi que des clés public et privée.
-
----------------------------------------------------------------------------------------------
-Séquence 3 : Les Actions GitHUB (Industrialisation Continue)
----------------------------------------------------------------------------------------------
-Objectif : Automatiser la mise à jour de votre hébergement Alwaysdata  
-Difficulté : Moyenne (~15 minutes)
----------------------------------------------------------------------------------------------
-Dans le Repository GitHUB que vous venez de créer précédemment lors de la séquence 1, vous avez un fichier intitulé CICD.yml et qui est déposé dans le répertoire .github/workflows. Ce fichier a pour objectif d'automatiser le déploiement de votre code sur votre site Alwaysdata. Pour information, c'est ce que l'on appel des Actions GitHUB. Ce sont des scripts qui s'exécutent automatiquement lors de chaque Commit dans votre projet (C'est à dire à chaque modification de votre code). Ces scripts (appelés actions) sont au format yml qui est un format structuré proche de celui d'XML.  
-
-Pour utiliser cette Action (CICD.yml), **vous avez besoin de créer des secrets dans GitHUB** afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre Repository comme vos login et password par exemple.  
-
-Pour ce projet Métriques, **vous avez 4 secrets à créer** dans votre Repository GitHUB :  
-**USERNAME** = Le login qui est utilisé pour la connexion SSH.  
-**PASSWORD** = Le mot de passe qui est utilisé pour la connexion SSH.  
-**ALWAYSDATA_TOKEN** = Le token est à créer depuis l'interface d'administration Alwaysdata. Cliquez sur votre profil en haut à droite, puis sur 'Profil' puis sur 'Gérer les tokens'. Laissez le champ "Adresses IP autorisées" vide. Dans le cas contraire vous limiteriez les connexions seulement à une adresse IP. Pour le champ Application* mettez "Metriques" par exemple.  
-**ALWAYSDATA_SITE_ID** = Vous trouverez l'ID de votre site depuis l'interface d'administration Alwaysdata dans les paramètres de votre site (dans le titre #XXXXX) XXXXX étant l'ID de votre site. Ne prenez pas le # mais juste les chiffres.  
-  
-Voici une vidéo pour vous expliquer le processus de création de vos secrets dans GitHUB : [Création des secrets](https://youtu.be/pi80zRdrJyQ)  
-Vous pouvez à présent **lancer une action pour mettre en ligne votre solution**.  
+**ALWAYSDATA_SITE_ID** = Vous trouverez l'ID de votre site depuis l'interface d'administration Alwaysdata dans les paramètres de votre site (dans le titre #XXXXX) XXXXX étant l'ID de votre site. Ne prenez pas le # mais juste les chiffres.
   
 Notions acquises de cette séquence :  
-Vous avez vu dans cette séquence comment créer des secrets GiHUB afin de mettre en place de l'industrialisation continue.  
-L'utilité des scripts d'actions (C'est à dire des scripts exécutés lors des Commits) est très importante mais sortes malheureusement du cadre de cet atelier faute de temps. Toutefois, je vous invites à découvrir cet outil via les différentes sources du Web (Google, ChatGPT, etc..).  
+Vous avez vu dans cette séquence comment créer des secrets GiHUB afin de mettre en place de l'industrialisation continue. Nous avons créé des secrets ainsi que des clés public et privée. L'utilité des scripts d'actions (C'est à dire des scripts exécutés lors des Commits) est très importante mais sortes malheureusement du cadre de cet atelier faute de temps. Toutefois, je vous invites à découvrir cet outil via les différentes sources du Web (Google, ChatGPT, etc..).  
 
 ---------------------------------------------------
 Séquence 4 : Créer la base de données sur votre serveur
@@ -174,7 +148,7 @@ Séquence 4 : Créer la base de données sur votre serveur
 Objectif : Créer la base de données SQLite sur votre serveur  
 Difficulté : Faible (~10 minutes)
 ---------------------------------------------------
-1° - Connectez vous en SSH à votre serveur Alwaysdata via l'adresse suivante :**https://ssh-{compte}.alwaysdata.net**. Remarque importante, {compte] est à remplacer par votre compte Alwaysdata. C'est à dire le compte que vous avez utilisé pour renseigner votre secret GitHUB USERNAME.   
+1° - Connectez vous en SSH à votre serveur Alwaysdata via l'adresse suivante :**https://ssh-{compte}.alwaysdata.net**. Remarque importante, {compte} est à remplacer par votre compte Alwaysdata. C'est à dire le compte que vous avez utilisé pour renseigner votre secret GitHUB USERNAME.   
 2° - Une fois connecté, depuis de la console SSH, executez la commande suivante : **cd www/flask** puis **python3 create_db.py**  
 Votre base de données est à présent opérationnelle sur votre serveur (Le fichier database.db à été créé dans votre répertoire sur le serveur)
 Vous pouvez, si vous le souhaitez, tappez la commande **ls** dans votre console pour voir la présence de la base de données.
