@@ -201,14 +201,14 @@ Besoin : L'entreprise CLOE855 recherche des solutions pour sécuriser son infras
   
 Les solutions techniques demandées :  
 **1. - Sécurisation de l'Infrastructure Web :**  
-. 1.1 - La base de données database.db du serveur sera sauvegarder automatiquement sur un serveur tiers.
+. 1.1 - La base de données database.db du serveur sera sauvegarder automatiquement sur un serveur tiers.  
 . 1.2 - Mettre en place un contrôle d'accès (traçabilité) pour suivre le trafic de connection vers les bases de données.  
-. 1.3 - Mettre en place une détection des menaces pour surveiller les activités suspectes et les violations de sécurité.
-**2.	Sécurisation des Clés SSH :**
- . 2.1 -	Utilisation d'une solution de gestion des clés SSH centralisée pour stocker et gérer les clés SSH de manière sécurisée.
- . 2.2 -	Mise en place d'une rotation régulière des clés SSH et des certificats pour réduire les risques associés aux clés compromises.
- . 2.3 -	Intégration de mécanismes d'authentification à plusieurs facteurs (MFA) pour renforcer la sécurité des connexions SSH.
+. 1.3 - Mettre en place une détection des menaces pour surveiller les activités suspectes et les violations de sécurité.  
+**2.	Sécurisation des Clés SSH :**  
+ . 2.1 -	Utilisation d'une solution de gestion des clés SSH centralisée pour stocker et gérer les clés SSH de manière sécurisée.  
+ . 2.2 -	Mise en place d'une rotation régulière des clés SSH et des certificats pour réduire les risques associés aux clés compromises.  
+ . 2.3 -	Intégration de mécanismes d'authentification à plusieurs facteurs (MFA) pour renforcer la sécurité des connexions SSH.  
 **3.	Sécurisation des Scripts d'Automatisation :**  
  . 3.1 -	Utilisation de services de contrôle de code source pour stocker les scripts d'automatisation de manière sécurisée.  
- . 3.2 -	Mise en place de pipelines CI/CD pour automatiser les tests de vos API (effets de bords).
+ . 3.2 -	Mise en place de pipelines CI/CD pour automatiser les tests de vos API (effets de bords).  
   
