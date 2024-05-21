@@ -123,15 +123,15 @@ Procédure pour la clé public :
 	1.1 - Connectez vous à votre serveur Alwaysdatat via une console ssh (ex : https://ssh-etudiant.alwaysdata.net/). Remarque importante : Activer la connexion par mot de passe pour votre utilisateur SSH.
         	1.1.1 : Le login est celui de votre compte site (celui en haut à gauche).
         	1.1.1 : Le mot de passe de compte compte site est à taper en aveugle (le curseur de la console ne bouge pas et c'est normal)
-    	1.2 - Ensuite, toujours depuis cette console SSH, créer à présent le répertoire .ssh en tapant le commande suivante : ```mkdir .ssh```
-    	1.3 - Récupérer la clé public en tappant la commande suivant dans la console SSH : ```git clone https://github.com/bstocker/keyalwaysdata.git```
-    	1.4 - Déplacer la clé pour la mettre dans le bon répertoire de votre serveur via la commande : ```mv keyalwaysdata/authorized_keys .ssh``` 
+    	1.2 - Ensuite, toujours depuis cette console SSH, créer à présent le répertoire .ssh en tapant le commande suivante : **mkdir .ssh**
+    	1.3 - Récupérer la clé public en tappant la commande suivant dans la console SSH : **git clone https://github.com/bstocker/keyalwaysdata.git**
+    	1.4 - Déplacer la clé pour la mettre dans le bon répertoire de votre serveur via la commande : **mv keyalwaysdata/authorized_keys .ssh** 
 
 Astuce : Pour coller du texte dans votre navigateur, vous pouvez utiliser la combinaison de touche Ctrl+Shift+v pour coller votre texte.
 
-Pour vérifier que tout est bon avec votre clé public sur le serveur tapez la commande suivante depuis votre console ssh :
-**cat .ssh/authorized_keys** le résultat devrait être le suivant :
-```C
+Pour vérifier que tout est bon et que votre clé public est bien déclarée sur votre serveur, tapez la commande suivante depuis votre console ssh :
+**cat .ssh/authorized_keys** le résultat doit être le suivant :
+```
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgtNY7cVSVckuXGY9fLZ6dmcBGeepGBnr7uXM2/Avs7 noname
 ```
 
