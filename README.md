@@ -150,7 +150,7 @@ Difficulté : Faible (~10 minutes)
 ---------------------------------------------------
 1° - Connectez vous en SSH à votre serveur Alwaysdata via l'adresse suivante :**https://ssh-{compte}.alwaysdata.net**. Remarque importante, {compte} est à remplacer par votre compte Alwaysdata. C'est à dire le compte que vous avez utilisé pour renseigner votre secret GitHUB USERNAME.   
 2° - Une fois connecté, depuis de la console SSH, executez la commande suivante : **cd www/flask** puis **python3 create_db.py**  
-Votre base de données est à présent opérationnelle sur votre serveur (Le fichier database.db à été créé dans votre répertoire sur le serveur)
+Votre base de données est à présent opérationnelle sur votre serveur (Le fichier **database.db** à été créé dans votre répertoire sur le serveur)
 Vous pouvez, si vous le souhaitez, tappez la commande **ls** dans votre console pour voir la présence de la base de données.
 
 LES ROUTES (API)
