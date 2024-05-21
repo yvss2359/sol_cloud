@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------------------------------
-PROJET FLASK SQLite
+PROJET CLOE855
 ------------------------------------------------------------------------------------------------------
 Quelles sont les notions qui vont être abordées au cours de cet atelier ?
 Cet atelier a pour objectif de vous apprendre à créer des bases de données grace à Python et SQLite. Vous allez ensuite exploter cette base de données via la construction d'API. Vous allez utiliser et mettre en oeuvre au travers de cet atelier, un serveur Python utilisant le Framework Flask. 
@@ -60,6 +60,20 @@ Voici une vidéo d'accompagnement pour vous aider dans cette séquence de créat
   
 Notions acquises lors de cette séquence :  
 Vous avez créer un hébergement (gratuit) et découvert également que vous pouvez installer bien d'autres applications (Django, Drupal, Jenkins, Magento, Symphony, etc...). Les perspectives sont nombreuses.
+
+---------------------------------------------------
+Séquence 3 : Création des clés SSH
+---------------------------------------------------
+Objectif : Se connecter au serveur via des clés SSH  
+Difficulté : Moyen (~15 minutes)
+---------------------------------------------------
+Sur Alwaysdata, vous devez déclarer les clés publiques des utilisateurs ayant des droits de connexion.  
+Ces clés publiques doivent être déposées dans le fichier **.ssh/authorized_keys** à la racine de votre serveur.  
+Voici une clé publique que vous pouvez utiliser et déposer dans le fichier .ssh/authorized_keys :  
+  
+**ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgtNY7cVSVckuXGY9fLZ6dmcBGeepGBnr7uXM2/Avs7 noname**
+  
+
 
 ---------------------------------------------------------------------------------------------
 Séquence 3 : Les Actions GitHUB (Industrialisation Continue)
