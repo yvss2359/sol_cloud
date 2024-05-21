@@ -190,17 +190,25 @@ Cette nouvelle route "/fiche_nom/" est soumise à un contrôle d'accès User. C'
 Pour accéder à cette fonctionnalité, l'utilisateur sera authentifié sous les login et mot de passe suivant : **user/12345**
   
 ---------------------------------------------------
-Séquence 6 : Le projet de bibliothèque
+Séquence 6 : Étude de Cas
 ---------------------------------------------------
-Objectif : Créer une application de biliothèque  
-Difficulté : Moyenne (~180 minutes)
+Objectif : Sécurisation de votre infrastructure  
+Difficulté : Moyenne (~280 minutes)
 ---------------------------------------------------
-Votre projet consiste à present à concevoir et développer une application de gestion de bibliothèque moderne qui simplifie le processus de prêt et de retour de livres. Les fonctionnalités attendues dans le cadre de ce projet sont les suivantes :  
-•	L’enregistrement et la suppression de livres.  
-•	La recherche de livres disponibles.  
-•	L'emprunt possible d'un livre par un utilisateur.  
-•	La gestion des utilisateurs.  
-•	La gestion des stocks.  
-Votre travail est de modifier votre code afin de répondre aux besoins définis ci-dessus.
-L'application exploitera des API pour interagir avec la base de données et un contrôle d'accès Utilisateur/Administrateur doit être mis en place.  
-L’application pourra être enrichie avec des fonctionnalités supplémentaires telles que des recommandations de livres, des notifications pour les retours en retard, ou encore des rapports statistiques sur l'utilisation des livres pour améliorer l'expérience utilisateur et la gestion de la bibliothèque.  
+Problème : Les administrateurs système de l'entreprise CLO855 ont constaté des tentatives d'accès non autorisées à leurs serveurs d'application via des clés SSH compromises. De plus, ils sont préoccupés par la sécurité des scripts d'automatisation utilisés pour la gestion et la configuration de leur serveur.  
+  
+Besoin : L'entreprise CLOE855 recherche des solutions pour sécuriser son infrastructure virtuelle, ses clés SSH et ses scripts d'automatisation.  
+  
+Les solutions techniques demandées :  
+**1. - Sécurisation de l'Infrastructure Web :**  
+. 1.1 - La base de données database.db du serveur sera sauvegarder automatiquement sur un serveur tiers.
+. 1.2 - Mettre en place un contrôle d'accès (traçabilité) pour suivre le trafic de connection vers les bases de données.  
+. 1.3 - Mettre en place une détection des menaces pour surveiller les activités suspectes et les violations de sécurité.
+**2.	Sécurisation des Clés SSH :**
+ . 2.1 -	Utilisation d'une solution de gestion des clés SSH centralisée pour stocker et gérer les clés SSH de manière sécurisée.
+ . 2.2 -	Mise en place d'une rotation régulière des clés SSH et des certificats pour réduire les risques associés aux clés compromises.
+ . 2.3 -	Intégration de mécanismes d'authentification à plusieurs facteurs (MFA) pour renforcer la sécurité des connexions SSH.
+**3.	Sécurisation des Scripts d'Automatisation :**  
+ . 3.1 -	Utilisation de services de contrôle de code source pour stocker les scripts d'automatisation de manière sécurisée.  
+ . 3.2 -	Mise en place de pipelines CI/CD pour automatiser les tests de vos API (effets de bords).
+  
