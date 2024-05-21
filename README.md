@@ -70,7 +70,7 @@ Difficulté : Moyen (~45 minutes)
 Depuis le repository que vous venez de créer dans GitHUB vous allez à présent créer une Action afin de déployer votre code automatiquement sur votre serveur Alwaysdata via une connexion SSH. Cette action passe par la création d'un fichier **CICD.yml** dans GitHub dont le contenu sera executé à chaque commit des devellopeurs (c'est à dire à chaque modification de votre code dans GitHUB). Ce fichier est à déposer dans le répertoire **.github/workflows/CICD.yml** de votre repository.
 
 -------------
-Etape 1 : Création d'une action dans GitHUB
+**Etape 1 : Création d'une action dans GitHUB**
 Créer une Action dans votre repository GitHUB pour y deposer le script suivant :
 
 ```
@@ -95,7 +95,8 @@ jobs:
             curl -X POST --basic --user "${{ secrets.ALWAYSDATA_TOKEN }}:" https://api.alwaysdata.com/v1/site/${{ secrets.ALWAYSDATA_SITE_ID }}/restart/
 ```
 -------------
-Etape 2 : Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre repository (vos login, clés, dns, etc..). Ci-dessous une vidéo pour vous expliquer le processus de création d'un secret dans GitHUB. Par exemple le création d'un secret HOST_DNS
+**Etape 2 - Création des secrets :**  
+Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre repository (vos login, clés, dns, etc..). Ci-dessous une vidéo pour vous expliquer le processus de création d'un secret dans GitHUB. Par exemple le création d'un secret HOST_DNS
 https://www.youtube.com/watch?v=7CZde1a7rq0
 
 -----
@@ -132,7 +133,7 @@ Pour vérifier que tout est bon et que votre clé public est bien déclarée sur
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgtNY7cVSVckuXGY9fLZ6dmcBGeepGBnr7uXM2/Avs7 noname
 ```
 
-3° - Génération d'un token :
+**3° - Génération d'un token :**  
 Afin de pouvoir utiliser les API de la solution Alwaysdata (ex une demande de relance serveur dans notre cas), il faut créer un token.
 
 **ALWAYSDATA_TOKEN** = Le token est à créer depuis l'interface d'administration Alwaysdata. Cliquez sur votre profil en haut à droite, puis sur 'Profil' puis sur 'Gérer les tokens'. Laissez le champ "Adresses IP autorisées" vide. Dans le cas contraire vous limiteriez les connexions seulement une adresse IP. Pour le champ Application* mettez "flask" par exemple.
