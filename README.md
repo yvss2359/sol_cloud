@@ -70,8 +70,9 @@ Difficulté : Moyen (~15 minutes)
 Sur Alwaysdata, vous devez déclarer les clés publiques des utilisateurs ayant des droits de connexion.  
 Ces clés publiques doivent être déposées dans le fichier **.ssh/authorized_keys** à la racine de votre serveur.  
 Voici une clé publique que vous pouvez utiliser et déposer dans le fichier .ssh/authorized_keys :  
-  
-**ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgtNY7cVSVckuXGY9fLZ6dmcBGeepGBnr7uXM2/Avs7 noname**
+```  
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgtNY7cVSVckuXGY9fLZ6dmcBGeepGBnr7uXM2/Avs7 noname
+```
   
 
 
