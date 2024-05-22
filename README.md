@@ -77,22 +77,60 @@ Créer une Action dans votre repository GitHUB pour y deposer le script suivant 
 name: Industrialisation continue sur le serveur Alwaysdata
 on: push
 jobs:
-  deploy:
+  Connexion:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Flask app
+      - name: Connexion SSH avec le serveur
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_DNS }}
+          host: "ssh-${{ secrets.USERNAME }}.alwaysdata.net"
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          key: ${{ secrets.SSH_KEY }}
           script: |
             cd $HOME/www/
-            git clone https://github.com/bstocker/flask_hello_world.git
-            rsync -r ./flask_hello_world/ ./flask
-            rm -rf ./flask_hello_world
-            curl -X POST --basic --user "${{ secrets.ALWAYSDATA_TOKEN }}:" https://api.alwaysdata.com/v1/site/${{ secrets.ALWAYSDATA_SITE_ID }}/restart/
+
+  Copy:
+    needs: Connexion
+    runs-on: ubuntu-latest
+    steps:
+      - name: Connexion SSH avec le serveur
+        uses: appleboy/ssh-action@master
+        with:
+          host: "ssh-${{ secrets.USERNAME }}.alwaysdata.net"
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            last_directory=$(basename ${{ runner.workspace }})
+            cd $HOME/www/
+            git clone https://github.com/${{ github.repository }}.git
+            # Vérifier si le répertoire de destination existe
+            if [ "$(ls -A ./flask)" ]; then
+              rsync -r ./$last_directory/ ./flask
+              rm -rf ./$last_directory
+            else
+              echo "Le répertoire flask de destination sur votre serveur n'existe pas"
+              exit 1
+            fi
+  Restart:
+    needs: Copy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restart Alwaysdata site
+        run: |
+          response_code=$(curl -s -o /dev/null -w "%{http_code}" -X POST --basic --user "${{ secrets.ALWAYSDATA_TOKEN }}:" https://api.alwaysdata.com/v1/site/${{ secrets.ALWAYSDATA_SITE_ID }}/restart/)
+          # Vérifier le code de réponse HTTP
+          if [ "$response_code" -eq 204 ]; then
+            echo "Relance de votre site réussi"
+          elif [ "$response_code" -eq 404 ]; then
+            echo "Vous n'avez pas renseigner correctement votre secret ALWAYSDATA_SITE_ID"
+            exit 1  # Quitter avec un code d'erreur
+          elif [ "$response_code" -eq 401 ]; then
+            echo "Vous n'avez pas renseigner correctement votre secret ALWAYSDATA_TOKEN"
+          exit 1  # Quitter avec un code d'erreur
+          else
+            echo "Échec du redémarrage avec le code de réponse : $response_code"
+            exit 1  # Quitter avec un code d'erreur
+          fi
 ```
 -------------
 **Etape 2 - Création des secrets :**  
