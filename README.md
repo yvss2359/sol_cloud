@@ -67,7 +67,7 @@ Séquence 3 : Les actions GitHUB (Industrialisation Continue)
 Objectif : Automatiser la mise à jour de votre hébergement Alwaysdata
 Difficulté : Moyen (~45 minutes)
 ---------------------------------------------------
-Depuis le repository que vous venez de créer dans GitHUB vous allez à présent créer une Action afin de déployer votre code automatiquement sur votre serveur Alwaysdata via une connexion SSH. Cette action passe par la création d'un fichier **CICD.yml** dans GitHub dont le contenu sera executé à chaque commit des devellopeurs (c'est à dire à chaque modification de votre code dans GitHUB). Ce fichier est à déposer dans le répertoire **.github/workflows/CICD.yml** de votre repository.
+Depuis le repository que vous venez de créer dans GitHUB vous allez à présent créer une Action afin de déployer votre code automatiquement sur votre serveur Alwaysdata via une connexion SSH. Cette action passe par la création d'un fichier **CICD.yml** dans GitHub dont le contenu sera executé à chaque commit des devellopeurs (c'est à dire à chaque modification de votre code dans GitHUB). Ce fichier est à déposer dans le répertoire **.github/workflows/CICD.yml** de votre repository. Attention au point devant .github/workflows/CICD.yml qui est obligatoire.
 
 -------------
 **Etape 1 : Création d'une action dans GitHUB**
