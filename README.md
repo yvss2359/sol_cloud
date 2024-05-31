@@ -145,8 +145,8 @@ https://www.youtube.com/watch?v=7CZde1a7rq0
 
 -----
 Les secrets dans votre Repository Github que vous devez créer sont les suivants (il y en aura **4 secrets au tota**l) :  
-**USERNAME** = Le login que vous avez utilisé lors de la création de votre site.  
-**SSH_KEY** = L'intégralité de la clé privée ci-dessous (depuis ----BEGIN jusqu'à KEY-----)  
+**USERNAME** = Le login que vous avez utilisé lors de la création de votre site (abonnement) doit être stocké dans ce secret USERNAME.  
+**SSH_KEY** = Vous devez mettre dans ce secret l'intégralité de la clé privée ci-dessous (----BEGIN jusqu'à KEY----- inclut)  
 ```
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
@@ -157,31 +157,33 @@ cBGeepGBnr7uXM2/Avs7AAAABm5vbmFtZQECAwQFBgc=
 -----END OPENSSH PRIVATE KEY-----
 ```
 
-En revanche la clé public est à déposer directement sur votre serveur Alwaysdata. C'est à dire que vous devez vous connecter en SSH depuis une console sur le serveur Alwaysdata. Pour cette connection en SSH, vous pouvez utiliser le logiciel de votre choix (putty, cmd, ...) ou utiliser directement l'interface web proposé par Alwaysdata. Exemple en cliquant sur le lien suivant https://ssh-etudiant11.alwaysdata.net
-Attention !! Vous devez activer la connexion par mot de passe pour votre utilisateur SSH dans Alwasdata (Voir paragraphe 3.1 de la séquence 2).
+En revanche la clé public doit être déposée directement sur votre serveur Alwaysdata. C'est à dire que vous devez vous connecter en SSH sur le serveur Alwaysdata. Pour cette connection en SSH, vous pouvez utiliser le logiciel de votre choix (putty, cmd, ...) ou utiliser directement l'interface web proposé par Alwaysdata dans la console d'administration. Voici un exemple de console SSH proposée par Alwaysdata : https//ssh-etudiant11.alwaysdata.net
+Attention !! Vous devez activer la connexion par mot de passe pour votre utilisateur SSH dans la console d'administration Alwasdata (Voir paragraphe 3.1 de la séquence 2).
 
 **Procédure pour la clé public :**  
- . 2.1 - Connectez vous à votre serveur Alwaysdatat via une console ssh (ex : https://ssh-etudiant.alwaysdata.net/). Remarque importante : Activer la connexion par mot de passe pour votre utilisateur SSH.  
- . . 2.1.1 : Le login est celui de votre compte site (celui en haut à gauche).  
- . . 2.1.1 : Le mot de passe de compte compte site est à taper en aveugle (le curseur de la console ne bouge pas et c'est normal).  
- . 2.2 - Ensuite, toujours depuis cette console SSH, créer à présent le répertoire .ssh en tapant le commande suivante : **mkdir .ssh**  
+ . 2.1 - Connectez vous à votre serveur Alwaysdata via une console ssh (ex : https://ssh-etudiant11.alwaysdata.net/). Remarque importante : Activer la connexion par mot de passe pour votre utilisateur SSH.  
+ . . 2.1.1 : Le login est celui de votre compte site (celui en haut à gauche dans la console d'administration d'Alwaysdata).  
+ . . 2.1.1 : Le mot de passe du compte site est à taper en aveugle (c'est à dire que le curseur de la console ne bouge pas et c'est tout à fait normal).  
+ . 2.2 - Ensuite, toujours depuis cette même console SSH, créer à présent le répertoire .ssh en tapant le commande suivante : **mkdir .ssh**  
  . 2.3 - Récupérer la clé public en tappant la commande suivant dans la console SSH : **git clone https://github.com/bstocker/keyalwaysdata.git**  
- . 2.4 - Déplacer la clé pour la mettre dans le bon répertoire de votre serveur via la commande : **mv keyalwaysdata/authorized_keys .ssh**  
+ . 2.4 - Déplacer cette clé pour la mettre dans le bon répertoire de votre serveur via la commande : **mv keyalwaysdata/authorized_keys .ssh**  
   
 Astuce : Pour coller du texte dans votre navigateur, vous pouvez utiliser la combinaison de touche Ctrl+Shift+v pour coller votre texte.
   
-Pour vérifier que tout est bon et que votre clé public est bien déclarée sur votre serveur, tapez la commande suivante depuis votre console ssh :
-**cat .ssh/authorized_keys** le résultat doit être le suivant :
+Pour vérifier que tout est en ordre et que votre clé public est bien déclarée sur votre serveur, tapez la commande suivante depuis votre console ssh :
+**cat .ssh/authorized_keys**. Le résultat dans votre console doit être le suivant :
 ```
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgtNY7cVSVckuXGY9fLZ6dmcBGeepGBnr7uXM2/Avs7 noname
 ```
 
 **3° - Génération d'un token :**  
-Afin de pouvoir utiliser les API de la solution Alwaysdata (ex une demande de relance serveur dans notre cas), il faut créer un token.
+Afin de pouvoir utiliser les API de la solution Alwaysdata (dans notre cas demanderons des relances régulaires de serveur), il faut créer un token dans Alwaysdata.
 
-**ALWAYSDATA_TOKEN** = Le token est à créer depuis l'interface d'administration Alwaysdata. Cliquez sur votre profil en haut à droite, puis sur 'Profil' puis sur 'Gérer les tokens'. Laissez le champ "Adresses IP autorisées" vide. Dans le cas contraire vous limiteriez les connexions seulement une adresse IP. Pour le champ Application* mettez "flask" par exemple.
+**ALWAYSDATA_TOKEN** = Le token est à créer depuis l'interface d'administration Alwaysdata. Cliquez sur votre profil en haut à droite, puis sur 'Profil' puis sur 'Gérer les tokens'. Laissez le champ "Adresses IP autorisées" vide. Dans le cas contraire vous limiteriez les connexions seulement à une adresse IP. Pour le champ Application* mettez "flask" par exemple.
 
-**ALWAYSDATA_SITE_ID** = Vous trouverez l'ID de votre site depuis l'interface d'administration Alwaysdata dans les paramètres de votre site (dans le titre #XXXXX) XXXXX étant l'ID de votre site. Ne prenez pas le # mais juste les chiffres.
+**ALWAYSDATA_SITE_ID** = Vous trouverez l'ID de votre site depuis l'interface d'administration Alwaysdata puis dans les paramètres de votre site. Il s'agit du petit engrenage à droite de votre site (dans le titre #XXXXX) XXXXX étant l'ID de votre site. Ne prenez pas le # mais juste les chiffres.
+
+Votre script CICD est à présent prêt à être déclanché. Celui-ci se déclenchera automatiquement à chaque Commit de votre code (c'est à dire à chaque modification de votre code). Procéder à une modification de votre code pour vérifier que votre action fonctionne bien. Vous pouvez modifier ce Readme par exemple.    
   
 Notions acquises de cette séquence :  
 Vous avez vu dans cette séquence comment créer des secrets GiHUB afin de mettre en place de l'industrialisation continue. Nous avons créé des secrets ainsi que des clés public et privée. L'utilité des scripts d'actions (C'est à dire des scripts exécutés lors des Commits) est très importante mais sortes malheureusement du cadre de cet atelier faute de temps. Toutefois, je vous invites à découvrir cet outil via les différentes sources du Web (Google, ChatGPT, etc..).  
