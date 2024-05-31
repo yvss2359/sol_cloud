@@ -236,16 +236,16 @@ Cette nouvelle route "/fiche_nom/" est soumise à un contrôle d'accès User. C'
 Pour accéder à cette fonctionnalité, l'utilisateur sera authentifié sous les login et mot de passe suivant : **user/12345**
   
 ---------------------------------------------------
-Séquence 6 : Étude de Cas
+Séquence 6 : MSPR CLOE855
 ---------------------------------------------------
 Objectif : Sécurisation de votre infrastructure  
-Difficulté : Moyenne (~280 minutes)
+Difficulté : Moyenne (~12 heures)
 ---------------------------------------------------
 Problème : Les administrateurs système de l'entreprise CLO855 ont constaté des tentatives d'accès non autorisées à leurs serveurs d'application via des clés SSH compromises. De plus, ils sont préoccupés par la sécurité des scripts d'automatisation utilisés pour la gestion et la configuration de leur serveur.  
   
 Besoin : L'entreprise CLOE855 recherche des solutions pour sécuriser son infrastructure virtuelle, ses clés SSH et ses scripts d'automatisation.  
   
-Les solutions techniques demandées :  
+Les solutions techniques demandées dans le cadre de cette MSPR :  
 **1. - Sécurisation de l'Infrastructure Web :**  
 . 1.1 - La base de données database.db du serveur sera sauvegarder automatiquement sur un serveur tiers.  
 . 1.2 - Mettre en place un contrôle d'accès (traçabilité) pour suivre le trafic de connection vers les bases de données.  
