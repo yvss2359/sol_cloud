@@ -2,13 +2,11 @@
 PROJET CLOE855
 ------------------------------------------------------------------------------------------------------
 Quelles sont les notions qui vont être abordées au cours de cet atelier ?  
-Cet atelier a été créé pour vous accompagner dans votre atelier développer et sécuriser une solution cloud. Il s'agit de concevoir et sécuriser des solutions 
-d'infrastructure virtualisées et cloud. Plus précisement, cet atelier a pour objectif de mettre en pratique vos connaissances liées à la sécurisation d’une infrastructure virtualisée. Il s'agit ici d'une étude de cas concernant une entreprise « fictive » ayant un besoin de sécuriser sa solution cloud. 
-Dans cette étude de cas vous devrez réaliser :
+Ce support a été créé pour vous accompagner dans la réalisation de votre atelier "développer et sécuriser une solution cloud". Il s'agit ici de concevoir et sécuriser des solutions d'infrastructure virtualisées et cloud. Plus précisement, cet atelier a pour objectif de mettre en pratique vos connaissances informatiques liées à la sécurisation d’une infrastructure IT virtualisée. Il s'agit d'une étude de cas concernant une entreprise « fictive » ayant un besoin de sécuriser sa solution cloud. Dans cette étude de cas vous devrez réaliser :
  - Mise en service d'une solution Web.  
  - Mettre en place une solution pour sécuriser les clés SSH de la solution.  
  - Mettre en place des scripts d'automatisation.    
-Cet atelier a également pour objectif de vous apprendre à créer des bases de données grace à Python et SQLite. Vous allez ensuite exploiter cette base de données via la construction d'API sous Flask. Vous allez donc utiliser et mettre en oeuvre au travers de cet atelier, un serveur Python utilisant le Framework Flask. 
+Cet atelier a également pour objectif de vous apprendre à créer des bases de données grace à Python et SQLite. Vous allez ensuite exploiter cette base de données via la construction d'API. Vous allez donc utiliser et mettre en oeuvre au travers de cet atelier, un serveur Python utilisant le Framework Flask. 
 Vous allez créer des API, découvrir les Actions et les Secrets GitHUB pour au final mettre en service et exploiter une base de données sur un serveur Web.
 Large programme mais tout à fait accessible et ne nécessitant pas de base technique particulière. Juste de l'observation et de la rigueur dans votre travail.
 
