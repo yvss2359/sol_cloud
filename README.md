@@ -77,7 +77,7 @@ Depuis le repository que vous venez de créer dans GitHUB vous allez à présent
 
 -------------
 **Etape 1 : Création d'une action dans GitHUB**  
-Créer une Action dans votre repository GitHUB pour y deposer le script suivant :
+Créer une Action dans votre repository GitHUB pour y deposer le script suivant (fichier .github/workflows/CICD.yml) :
 
 ```
 name: Industrialisation continue sur le serveur Alwaysdata
