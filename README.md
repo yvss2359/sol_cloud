@@ -246,7 +246,7 @@ Problème : Les administrateurs système de l'entreprise CLO855 ont constaté de
 Besoin : L'entreprise CLOE855 recherche des solutions pour sécuriser son infrastructure virtuelle, ses clés SSH et ses scripts d'automatisation.  
   
 Les solutions techniques demandées dans le cadre de cette MSPR :  
-**1. - Sécurisation de l'Infrastructure Web :**  
+**1. - Sécurisation de votre Infrastructure Web**  
 . 1.1 - La base de données database.db du serveur sera sauvegarder automatiquement sur un serveur tiers.  
 . 1.2 - Mettre en place un contrôle d'accès (traçabilité) pour suivre le trafic de connection vers les bases de données.  
 . 1.3 - Mettre en place une détection des menaces pour surveiller les activités suspectes et les violations de sécurité.  
