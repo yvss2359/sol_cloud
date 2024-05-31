@@ -144,7 +144,7 @@ Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des 
 https://www.youtube.com/watch?v=7CZde1a7rq0
 
 -----
-Les secrets de votre Repository Github que vous devez créer (il y en aura **4 secrets au tota**l) :  
+Les secrets dans votre Repository Github que vous devez créer sont les suivants (il y en aura **4 secrets au tota**l) :  
 **USERNAME** = Le login que vous avez utilisé lors de la création de votre site.  
 **SSH_KEY** = L'intégralité de la clé privée ci-dessous (depuis ----BEGIN jusqu'à KEY-----)  
 ```
