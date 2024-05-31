@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------------------------------
 PROJET CLOE855
 ------------------------------------------------------------------------------------------------------
-Quelles sont les notions qui vont être abordées au cours de cet atelier ?
-Cette atelier a été créé pour vous accompagner dans votre atelier développer et sécuriser une solution cloud. Il s'agit de concevoir et sécuriser des solutions 
+Quelles sont les notions qui vont être abordées au cours de cet atelier ?  
+Cet atelier a été créé pour vous accompagner dans votre atelier développer et sécuriser une solution cloud. Il s'agit de concevoir et sécuriser des solutions 
 d'infrastructure virtualisées et cloud. Plus précisement, cet atelier a pour objectif de mettre en pratique vos connaissances liées à la sécurisation d’une infrastructure virtualisée. Il s'agit ici d'une étude de cas concernant une entreprise « fictive » ayant un besoin de sécuriser sa solution cloud. 
 Dans cette étude de cas vous devrez réaliser :
  - Mise en service d'une solution Web.  
