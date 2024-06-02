@@ -174,7 +174,7 @@ Pour vérifier que tout est en ordre et que votre clé public est bien déclaré
 ```
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgtNY7cVSVckuXGY9fLZ6dmcBGeepGBnr7uXM2/Avs7 noname
 ```
-Si c'est le cas, ce que l'opération est réussie.  
+Si c'est le cas, c'est que l'opération est réussie.  
   
 **3° - Génération d'un token :**  
 Afin de pouvoir utiliser les API de la solution Alwaysdata (dans notre cas demanderons des relances régulaires de serveur), il faut créer un token dans Alwaysdata.
