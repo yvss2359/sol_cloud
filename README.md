@@ -140,7 +140,7 @@ jobs:
 ```
 -------------
 **Etape 2 - Création des secrets :**  
-Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre repository (vos login, clés, dns, etc..). Ci-dessous une vidéo pour vous expliquer le processus de création d'un secret dans GitHUB. Par exemple le création d'un secret qui serait intitulé HOST_DNS (ce secret n'est pas présent dans ce projet) https://www.youtube.com/watch?v=7CZde1a7rq0
+Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre repository (vos login, clés, dns, etc..). Ci-dessous une vidéo pour vous expliquer le processus de création d'un secret dans GitHUB. Par exemple le création d'un secret qui serait intitulé HOST_DNS (ce secret n'est pas utilisé dans ce projet) https://www.youtube.com/watch?v=7CZde1a7rq0
 
 -----
 Les secrets dans votre Repository Github que vous devez créer sont les suivants (il y en aura **4 secrets au tota**l) :  
