@@ -39,7 +39,7 @@ Vous avez appris lors de cette séquence à créer des Repository pour stocker e
 Séquence 2 : Création d'un hébergement en ligne
 ---------------------------------------------------
 Objectif : Créer un hébergement sur Alawaysdata  
-Difficulté : Faible (~10 minutes)
+Difficulté : Faible (~15 minutes)
 ---------------------------------------------------
 
 Rendez-vous sur **https://www.alwaysdata.com/fr/**  
@@ -71,7 +71,7 @@ Vous avez créer un hébergement (gratuit) et découvert également que vous pou
 Séquence 3 : Les actions GitHUB (Industrialisation Continue)
 ---------------------------------------------------
 Objectif : Automatiser la mise à jour de votre hébergement Alwaysdata
-Difficulté : Moyen (~45 minutes)
+Difficulté : Moyen (~25 minutes)
 ---------------------------------------------------
 Depuis le repository que vous venez de créer dans GitHUB vous allez à présent créer une Action afin de déployer votre code automatiquement sur votre serveur Alwaysdata via une connexion SSH. Cette action passe par la création d'un fichier **CICD.yml** dans GitHub dont le contenu sera executé à chaque commit des devellopeurs (c'est à dire à chaque modification de votre code dans GitHUB). Ce fichier est à déposer dans le répertoire **.github/workflows/CICD.yml** de votre repository. **Attention au point devant .github**/workflows/CICD.yml qui est obligatoire puisqu'il s'agit d'un répertoire caché pour le système.
 
@@ -239,7 +239,7 @@ Pour accéder à cette fonctionnalité, l'utilisateur sera authentifié sous les
 Séquence 6 : MSPR CLOE855
 ---------------------------------------------------
 Objectif : Sécurisation de votre infrastructure  
-Difficulté : Moyenne (~12 heures)
+Difficulté : Moyenne (~10 heures)
 ---------------------------------------------------
 Problème : Les administrateurs système de l'entreprise CLO855 ont constaté des tentatives d'accès non autorisées à leurs serveurs d'application via des clés SSH compromises. De plus, ils sont préoccupés par la qualité et la sécurité du code et des scripts utilisés dans le cadre de ce projet.  
   
