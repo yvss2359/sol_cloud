@@ -143,9 +143,9 @@ jobs:
 Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre repository (vos login, clés, dns, etc..). Ci-dessous une vidéo pour vous expliquer le processus de création d'un secret dans GitHUB. Par exemple le création d'un secret qui serait intitulé HOST_DNS (ce secret n'est pas utilisé dans ce projet) https://www.youtube.com/watch?v=7CZde1a7rq0
 
 -----
-Les secrets dans votre Repository Github que vous devez créer sont les suivants (il y en aura **4 secrets au tota**l) :  
-**USERNAME** = Le login que vous avez utilisé lors de la création de votre site (abonnement) doit être stocké dans ce secret USERNAME.  
-**SSH_KEY** = Vous devez mettre dans ce secret l'intégralité de la clé privée ci-dessous (----BEGIN jusqu'à KEY----- inclut)  
+Les secrets dans votre Repository Github que vous avez à créer sont les suivants (il y a **4 secrets au total** à créer dans ce projet) :  
+**USERNAME** = Le login que vous avez utilisé lors de la création de votre site (également appelé abonnement) doit être stocké dans ce secret USERNAME.  
+**SSH_KEY** = Vous devez mettre dans ce secret l'intégralité de la clé privée ci-dessous (de ----BEGIN jusqu'à la fin KEY----- inclut)  
 ```
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
@@ -160,21 +160,22 @@ En revanche la clé public doit être déposée directement sur votre serveur Al
 Attention !! Vous devez activer la connexion par mot de passe pour votre utilisateur SSH dans la console d'administration Alwasdata (Voir paragraphe 3.1 de la séquence 2).
 
 **Procédure pour la clé public :**  
- . 2.1 - Connectez vous à votre serveur Alwaysdata via une console ssh (ex : https://ssh-etudiant11.alwaysdata.net/). Remarque importante : Activer la connexion par mot de passe pour votre utilisateur SSH.  
+ . 2.1 - Connectez vous à votre serveur Alwaysdata via la console ssh de votre choix (ex : https://ssh-etudiant11.alwaysdata.net/). Remarque importante : Activer la connexion par mot de passe pour votre utilisateur SSH.  
  . . 2.1.1 : Le login est celui de votre compte site (celui en haut à gauche dans la console d'administration d'Alwaysdata).  
  . . 2.1.1 : Le mot de passe du compte site est à taper en aveugle (c'est à dire que le curseur de la console ne bouge pas et c'est tout à fait normal).  
  . 2.2 - Ensuite, toujours depuis cette même console SSH, créer à présent le répertoire .ssh en tapant le commande suivante : **mkdir .ssh**  
  . 2.3 - Récupérer la clé public en tappant la commande suivant dans la console SSH : **git clone https://github.com/bstocker/keyalwaysdata.git**  
  . 2.4 - Déplacer cette clé pour la mettre dans le bon répertoire de votre serveur via la commande : **mv keyalwaysdata/authorized_keys .ssh**  
   
-Astuce : Pour coller du texte dans votre navigateur, vous pouvez utiliser la combinaison de touche Ctrl+Shift+v pour coller votre texte.
+Astuce : Pour coller du texte dans votre navigateur, vous pouvez utiliser la combinaison de touche Ctrl+Shift+v pour coller votre texte dans le navigateur.
   
 Pour vérifier que tout est en ordre et que votre clé public est bien déclarée sur votre serveur, tapez la commande suivante depuis votre console ssh :
 **cat .ssh/authorized_keys**. Le résultat dans votre console doit être le suivant :
 ```
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgtNY7cVSVckuXGY9fLZ6dmcBGeepGBnr7uXM2/Avs7 noname
 ```
-
+Si c'est le cas, ce que l'opération est réussie.  
+  
 **3° - Génération d'un token :**  
 Afin de pouvoir utiliser les API de la solution Alwaysdata (dans notre cas demanderons des relances régulaires de serveur), il faut créer un token dans Alwaysdata.
 
@@ -182,7 +183,7 @@ Afin de pouvoir utiliser les API de la solution Alwaysdata (dans notre cas deman
 
 **ALWAYSDATA_SITE_ID** = Vous trouverez l'ID de votre site depuis l'interface d'administration Alwaysdata puis dans les paramètres de votre site. Il s'agit du petit engrenage à droite de votre site (dans le titre #XXXXX) XXXXX étant l'ID de votre site. Ne prenez pas le # mais juste les chiffres.
 
-Votre script CICD est à présent prêt à être déclanché. Celui-ci se déclenchera automatiquement à chaque Commit de votre code (c'est à dire à chaque modification de votre code). Procéder à une modification de votre code pour vérifier que votre action fonctionne bien. Vous pouvez modifier ce Readme par exemple.    
+Votre script CICD est à présent prêt à être déclanché. Celui-ci se déclenchera automatiquement à chaque Commit de votre code (c'est à dire à chaque modification de votre code dans Github). Procédez à une modification de votre code dans Github pour vérifier que votre action fonctionne bien correctement. Vous pouvez modifier ce Readme par exemple et faire ensuite votre Commit.    
   
 Notions acquises de cette séquence :  
 Vous avez vu dans cette séquence comment créer des secrets GiHUB afin de mettre en place de l'industrialisation continue. Nous avons créé des secrets ainsi que des clés public et privée. L'utilité des scripts d'actions (C'est à dire des scripts exécutés lors des Commits) est très importante mais sortes malheureusement du cadre de cet atelier faute de temps. Toutefois, je vous invites à découvrir cet outil via les différentes sources du Web (Google, ChatGPT, etc..).  
@@ -200,7 +201,7 @@ Vous pouvez, si vous le souhaitez, tappez la commande **ls** dans votre console 
 
 LES ROUTES (API)
 -------------------------------------------
-Votre solution est à présent opérationnelle. Vous pouvez testez les routes (API) comme suit :  
+Bravo ! Votre solution est à présent opérationnelle sur votre site Web. Vous pouvez testez vos routes (API) comme suit :  
   
 https://{Votre_URL}**/**  
 Pointe sur le fichier helloWorld d'accueil  
@@ -209,25 +210,25 @@ https://{Votre_URL}**/lecture**
 L'accès est conditionné à un contrôle d'accès  
 
 https://{Votre_URL}**/authentification**  
-Page d'authentification (Login = admin, Mot de passe = password)  
+Page d'authentification (Login = **admin**, Mot de passe = **password**)  
 
 https://{Votre_URL}**/fiche_client/1**  
 Permet de faire un filtre sur un client. Vous pouvez changer la valeur de 1 par le N° du client de votre choix  
 
 https://{Votre_URL}**/consultation/**  
-Permet de consutler la base de données  
+Permet de consulter tous les clients de la base de données  
 
 https://{Votre_URL}**/enregistrer_client**  
 API pour enregistrer un nouveau client  
 
 ---------------------------------------------------
-Séquence 5 : Exercices d'appropriation
+Séquence 5 : Exercices d'appropriation de la solution Web
 ---------------------------------------------------
-Objectif : Travailler votre code  
+Objectif : Travailler sur le code  
 Difficulté : Moyenne (~60 minutes)
 ---------------------------------------------------
 **Exercice 1 : Création d'une nouvelle fonctionnalité (1 point)**    
-Créer une nouvelle route dans votre application afin de faire une recherche sur la base du nom d'un client.  
+Créez une nouvelle route dans votre application afin de faire une recherche sur la base du nom d'un client (Même fonctionnement que sur le N° du client).  
 Cette fonctionnalité sera accéssible via la route suivante : **/fiche_nom/**  
 
 **Exercice 2 : Protection (2 points)**  
@@ -240,13 +241,13 @@ Séquence 6 : MSPR CLOE855
 Objectif : Sécurisation de votre infrastructure  
 Difficulté : Moyenne (~12 heures)
 ---------------------------------------------------
-Problème : Les administrateurs système de l'entreprise CLO855 ont constaté des tentatives d'accès non autorisées à leurs serveurs d'application via des clés SSH compromises. De plus, ils sont préoccupés par la sécurité des scripts d'automatisation utilisés pour la gestion et la configuration de leur serveur.  
+Problème : Les administrateurs système de l'entreprise CLO855 ont constaté des tentatives d'accès non autorisées à leurs serveurs d'application via des clés SSH compromises. De plus, ils sont préoccupés par la qualité et la sécurité du code et des scripts utilisés dans le cadre de ce projet.  
   
-Besoin : L'entreprise CLOE855 recherche des solutions pour sécuriser son infrastructure virtuelle, ses clés SSH et ses scripts d'automatisation.  
+Besoin : L'entreprise CLOE855 recherche donc des solutions pour sécuriser son infrastructure virtuelle, ses clés SSH et le code de son application.  
   
-Les solutions techniques demandées dans le cadre de cette MSPR :  
+Les solutions techniques demandées dans le cadre de cette MSPR sont les suivantes :  
 **1. - Sécurisation de votre Infrastructure Web :**    
-. 1.1 - La base de données database.db de votre serveur devra être sauvegarder automatiquement sur un serveur tiers (3 points).   
+. 1.1 - La base de données database.db de votre serveur doit être sauvegarder automatiquement sur un serveur tiers (3 points).   
 . 1.2 - Mettre en place un contrôle d'accès (traçabilité) pour suivre le trafic des connections (1 point).  
 . 1.3 - Mettre en place une détection des menaces pour surveiller les activités suspectes (1 point).  
 **2.	Sécurisation des Clés SSH :**  
@@ -260,13 +261,13 @@ Les solutions techniques demandées dans le cadre de cette MSPR :
 ---------------------------------------------------
 Séquence 6 : RAPPORT DE MSPR (4 points)
 ---------------------------------------------------
-Objectif : Sécurisation de votre infrastructure  
+Objectif : Produire un rapport pour détailler le fonctionnement de votre solution  
 Difficulté : Moyenne (~2 heures)
 ---------------------------------------------------
-Votre MSPR fera l'objet d'un rapport venant accompagner et compléter les travaux techniques que vous avez pu réalisé dans le cadre de votre atelier. 
+Votre MSPR fera l'objet d'un rapport venant accompagner et compléter les travaux techniques que vous avez pu réalisé dans le cadre de votre projet. 
 Complétez directement ce Readme pour nous expliquer comment avez sécuriser votre infrastructure.  
 
-**Expliquez nous dans cette section comment avez vous sécuriser votre infrastructure :**
+**Expliquez nous dans cette section comment fonctionne la sécurisation de votre infrastructure :**
 ..  
 ..  
 
