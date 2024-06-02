@@ -221,16 +221,16 @@ https://{Votre_URL}**/enregistrer_client**
 API pour enregistrer un nouveau client  
 
 ---------------------------------------------------
-Séquence 5 : Exercices
+Séquence 5 : Exercices d'appropriation
 ---------------------------------------------------
 Objectif : Travailler votre code  
 Difficulté : Moyenne (~60 minutes)
 ---------------------------------------------------
-**Exercice 1 : Création d'une nouvelle fonctionnalité**    
+**Exercice 1 : Création d'une nouvelle fonctionnalité (1 point)**    
 Créer une nouvelle route dans votre application afin de faire une recherche sur la base du nom d'un client.  
 Cette fonctionnalité sera accéssible via la route suivante : **/fiche_nom/**  
 
-**Exercice 2 : Protection**  
+**Exercice 2 : Protection (2 points)**  
 Cette nouvelle route "/fiche_nom/" est soumise à un contrôle d'accès User. C'est à dire différent des login et mot de passe administrateur.  
 Pour accéder à cette fonctionnalité, l'utilisateur sera authentifié sous les login et mot de passe suivant : **user/12345**
   
@@ -245,18 +245,40 @@ Problème : Les administrateurs système de l'entreprise CLO855 ont constaté de
 Besoin : L'entreprise CLOE855 recherche des solutions pour sécuriser son infrastructure virtuelle, ses clés SSH et ses scripts d'automatisation.  
   
 Les solutions techniques demandées dans le cadre de cette MSPR :  
-**1. - Sécurisation de votre Infrastructure Web**  
-. 1.1 - La base de données database.db du serveur sera sauvegarder automatiquement sur un serveur tiers.  
-. 1.2 - Mettre en place un contrôle d'accès (traçabilité) pour suivre le trafic de connection vers les bases de données.  
-. 1.3 - Mettre en place une détection des menaces pour surveiller les activités suspectes et les violations de sécurité.  
+**1. - Sécurisation de votre Infrastructure Web :**    
+. 1.1 - La base de données database.db de votre serveur devra être sauvegarder automatiquement sur un serveur tiers (3 points).   
+. 1.2 - Mettre en place un contrôle d'accès (traçabilité) pour suivre le trafic des connections (1 point).  
+. 1.3 - Mettre en place une détection des menaces pour surveiller les activités suspectes (1 point).  
 **2.	Sécurisation des Clés SSH :**  
- . 2.1 -	Utilisation d'une solution de gestion des clés SSH centralisée pour stocker et gérer les clés SSH de manière sécurisée.  
- . 2.2 -	Mise en place d'une rotation régulière des clés SSH et des certificats pour réduire les risques associés aux clés compromises.  
- . 2.3 -	Intégration de mécanismes d'authentification à plusieurs facteurs (MFA) pour renforcer la sécurité des connexions SSH.  
-**3.	Sécurisation des Scripts d'Automatisation :**  
- . 3.1 -	Utilisation de services de contrôle de code source pour stocker les scripts d'automatisation de manière sécurisée.  
- . 3.2 -	Mise en place de pipelines CI/CD pour automatiser les tests de vos API (effets de bords).  
- --------------------------------------------------------------------
+ . 2.1 -	Utilisation d'une solution de gestion des clés SSH centralisée pour stocker et gérer les clés SSH de manière sécurisée (2 points).  
+ . 2.2 -	Mise en place d'une rotation régulière des clés SSH pour réduire les risques associés aux clés compromises (1 point).  
+ . 2.3 -	Intégration de mécanismes d'authentification à plusieurs facteurs (MFA) pour renforcer la sécurité des connexions SSH (1 point).  
+**3.	Sécurisation de votre code :**  
+ . 3.1 -	Utilisation de services de contrôle de code source pour vérifier la qualité et la sécurité de votre code source (2 points).  
+ . 3.2 -	Mise en place de pipelines CI/CD pour automatiser les tests de vos API (2 points).  
+ 
+---------------------------------------------------
+Séquence 6 : RAPPORT DE MSPR (4 points)
+---------------------------------------------------
+Objectif : Sécurisation de votre infrastructure  
+Difficulté : Moyenne (~2 heures)
+---------------------------------------------------
+Votre MSPR fera l'objet d'un rapport venant accompagner et compléter les travaux techniques que vous avez pu réalisé dans le cadre de votre atelier. 
+Complétez directement ce Readme pour nous expliquer comment avez sécuriser votre infrastructure.  
+
+**Expliquez nous dans cette section comment avez vous sécuriser votre infrastructure :**
+..  
+..  
+
+**Expliquez nous dans cette section comment avez vous sécuriser vos clés SSH :**
+..  
+..  
+
+**Expliquez nous dans cette section comment avez vous sécuriser votre code :**
+..  
+..  
+
+--------------------------------------------------------------------
 Troubleshooting :
 ---------------------------------------------------
 Objectif : Visualiser ses logs et découvrir ses erreurs
