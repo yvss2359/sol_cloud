@@ -209,7 +209,7 @@ https://{Votre_URL}**/lecture**
 L'accès est conditionné à un contrôle d'accès  
 
 https://{Votre_URL}**/authentification**  
-Page d'authentification (admin, password)  
+Page d'authentification (Login = admin, Mot de passe = password)  
 
 https://{Votre_URL}**/fiche_client/1**  
 Permet de faire un filtre sur un client. Vous pouvez changer la valeur de 1 par le N° du client de votre choix  
