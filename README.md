@@ -62,7 +62,7 @@ Voici une vidéo d'accompagnement pour vous aider dans cette séquence de créat
  . 3.3 - Définissez si besion un nouveau mot de passe.  
  . 3.4 - Cliquez sur **Activer la connexion par mot de passe**.  
   
-**Travail demandé :** Mettre en ligne votre application Flask "Hello World !" et **copier l'URL de votre site dans la discussion public**.  
+**Travail demandé :** Mettre en ligne votre application Flask "Hello World !" et **copier l'URL de votre site dans la discussion Discord**.  
   
 Notions acquises lors de cette séquence :  
 Vous avez créer un hébergement (gratuit) et découvert également que vous pouvez installer bien d'autres applications (Django, Drupal, Jenkins, Magento, Symphony, etc...). Les perspectives sont nombreuses.
