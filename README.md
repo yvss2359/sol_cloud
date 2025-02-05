@@ -145,7 +145,7 @@ Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des 
 -----
 Les secrets dans votre Repository Github que vous avez à créer sont les suivants (il y a **4 secrets au total** à créer dans ce projet) :  
 **USERNAME** = Le login que vous avez utilisé lors de la création de votre site (également appelé abonnement) doit être stocké dans ce secret USERNAME.  
-**SSH_KEY** = Vous devez mettre dans ce secret l'intégralité de la clé public ci-dessous (de ----BEGIN jusqu'à la fin KEY----- inclut)  
+**SSH_KEY** = Vous devez mettre dans ce secret l'intégralité de la clé privée ci-dessous (de ----BEGIN jusqu'à la fin KEY----- inclut)  
 ```
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
@@ -156,7 +156,7 @@ cBGeepGBnr7uXM2/Avs7AAAABm5vbmFtZQECAwQFBgc=
 -----END OPENSSH PRIVATE KEY-----
 ```
 
-En revanche la clé privée doit être déposée directement sur votre serveur Alwaysdata. C'est à dire que vous devez vous connecter en SSH sur le serveur Alwaysdata. Pour cette connection en SSH, vous pouvez utiliser le logiciel de votre choix (putty, cmd, ...) ou utiliser directement l'interface web proposé par Alwaysdata dans la console d'administration. Voici un exemple de console SSH proposée par Alwaysdata : https//ssh-etudiant11.alwaysdata.net
+En revanche la clé public doit être déposée directement sur votre serveur Alwaysdata. C'est à dire que vous devez vous connecter en SSH sur le serveur Alwaysdata. Pour cette connection en SSH, vous pouvez utiliser le logiciel de votre choix (putty, cmd, ...) ou utiliser directement l'interface web proposé par Alwaysdata dans la console d'administration. Voici un exemple de console SSH proposée par Alwaysdata : https//ssh-etudiant11.alwaysdata.net
 Attention !! Vous devez activer la connexion par mot de passe pour votre utilisateur SSH dans la console d'administration Alwasdata (Voir paragraphe 3.1 de la séquence 2).
 
 **Procédure pour la clé public :**  
