@@ -142,18 +142,20 @@ jobs:
 **Etape 2 - Création des secrets :**  
 Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre repository (vos login, clés, dns, etc..). 
 -----
+
 **Procédure :**  
-1° - Settings >Secrets and Variables> Action> New Repository Secret. 
-2 Name: Donner un nom au choix (par exemple "FTP_PASSWORD").
-3 Secret : Mettre le mot de passe present dans le fichier main.yml.
-4 Cliquer sur "Add Secret".
-5 Verifier qu'on retrouve le secret crée dans "Repository secrets".
-6 Cliquer sur "Actions".
-7 ouvrir le fichier main.yml.
-8 Remplacer password:*** par la commande "password: ${{secrets.FTP_PASSWORD}}.
-9 commit.
 
-
+1° - Creer un Secret :  
+ . 1.1 - Settings >Secrets and Variables> Action> New Repository Secret.  
+ . 1.2 - Name: Donner un nom au choix (par exemple "FTP_PASSWORD")..  
+ . 1.3 - Secret : Mettre le mot de passe a crypter present dans le fichier main.yml..  
+ . 1.4 - Cliquer sur  "Add Secret".  .    
+2° - Vérifier qu'on retrouve le secret crée dans "Repository secrets":  
+3° - Appeler le "Secret":  
+ . 3.1 - Cliquer sur "Actions".  
+ . 3.2 - Ouvrir le fichier main.yml..  
+ . 3.3 - Remplacer password:*** par la commande "password: ${{secrets.FTP_PASSWORD}}..  
+ . 3.4 - Commit.  
 
 Les secrets dans votre Repository Github que vous avez à créer sont les suivants (il y a **4 secrets au total** à créer dans ce projet) :  
 **USERNAME** = Le login que vous avez utilisé lors de la création de votre site (également appelé abonnement) doit être stocké dans ce secret USERNAME.  
