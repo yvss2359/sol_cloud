@@ -118,7 +118,7 @@ def fiche_par_nom():
         except Exception as e:
             return f"<h3>Erreur lors de la recherche : {e}</h3>"
 
-    return render_template('fiche_par_nom.html', data=data)
+    return render_template('by_name.html', data=data)
 
 @app.route('/logout_admin')
 def logout_admin():
