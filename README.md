@@ -27,7 +27,7 @@ Si besoin, une vidéo pour vous aider à créer votre propre compte GitHUB : [Cr
 A noter que **si vous possédez déjà un compte GitHUB, vous pouvez le conserver pour réaliser cet atelier**. Pas besion d'en créer un nouveau.  
 Remarque importante : **Lors de votre inscription, utilisez une adresse mail valide. GitHUB n'accepte pas les adresses mails temporaires**  
 
-2° - Faites un Fork de ce Repository : [MSPR_CLO855](https://github.com/bstocker/MSPR_CLOE855)  
+2° - Faites un Fork de ce Repository : [MSPR_CLO855]([https://github.com/CRamyaGit/MSPR_CLOE855)  
    
   
 **Travail demandé :** Créé votre compte GitHUB, faites le fork de ce projet et **copier l'URL de votre Repository GitHUB dans la discussion Discord**.
