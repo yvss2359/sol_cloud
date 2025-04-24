@@ -105,24 +105,24 @@ def enregistrer_client():
     return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
 
 
-@app.route('/fiche_nom/', methods=['GET', 'POST'])
-def fiche_par_nom():
+@app.route('/fiche_nom/<string:post_name>', methods=['GET', 'POST'])
+def fiche_par_nom(post_name):
     if not est_authentifie_user():
         return redirect(url_for('authentification'))
 
     data = []
     if request.method == 'POST':
         try:
-            nom = request.form['nom']
             conn = sqlite3.connect('database.db')
             cursor = conn.cursor()
-            cursor.execute('SELECT * FROM clients WHERE nom = ?', (nom,))
+            cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_name,))
             data = cursor.fetchall()
             conn.close()
         except Exception as e:
             return f"<h3>Erreur lors de la recherche : {e}</h3>"
 
     return render_template('by_name.html', data=data)
+
 
 @app.route('/logout_admin')
 def logout_admin():
