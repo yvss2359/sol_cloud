@@ -144,14 +144,14 @@ Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des 
 -----
 **Procédure :**  
 1° - Settings >Secrets and Variables> Action> New Repository Secret. 
-2 Name: Donner un nom au choix (par exemple "FTP_PASSWORD")
-3 Secret : Mettre le mot de passe present dans le fichier main.yml
-4 Cliquer sur "Add Secret"
-5 Verifier qu'on retrouve le secret crée dans "Repository secrets"
-6 Cliquer sur "Actions"
-7 ouvrir le fichier main.yml
-8 Remplacer password:*** par la commande "password: ${{secrets.FTP_PASSWORD}}
-9 commit
+2 Name: Donner un nom au choix (par exemple "FTP_PASSWORD").
+3 Secret : Mettre le mot de passe present dans le fichier main.yml.
+4 Cliquer sur "Add Secret".
+5 Verifier qu'on retrouve le secret crée dans "Repository secrets".
+6 Cliquer sur "Actions".
+7 ouvrir le fichier main.yml.
+8 Remplacer password:*** par la commande "password: ${{secrets.FTP_PASSWORD}}.
+9 commit.
 
 
 
