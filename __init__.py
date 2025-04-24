@@ -51,13 +51,17 @@ def Readfiche(post_id):
 
 @app.route('/fiche_nom/<string:post_name>')
 def Readname(post_name):
-    conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_name,))
-    data = cursor.fetchall()
-    conn.close()
-    # Rendre le template HTML et transmettre les données
-    return render_template('by_name.html', data=data)
+    if not est_authentifie():
+        # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
+        return redirect(url_for('authentification'))
+    elif request.method == 'POST':
+        conn = sqlite3.connect('database.db')
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_name,))
+        data = cursor.fetchall()
+        conn.close()
+        # Rendre le template HTML et transmettre les données
+        return render_template('by_name.html', data=data)
 
 @app.route('/consultation/')
 def ReadBDD():
