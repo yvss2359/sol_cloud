@@ -11,6 +11,15 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'  # Clé secrète pour les sessions
 # Fonction pour créer une clé "authentifie" dans la session utilisateur
 def est_authentifie():
     return session.get('authentifie')
+def est_authentifie_admin():
+    return session.get('admin_auth')
+
+def est_authentifie_user():
+    return session.get('user_auth')
+
+# Fonction pour créer une clé "authentifie" dans la session utilisateur
+def est_authentifie():
+    return session.get('authentifie')
 
 @app.route('/')
 def hello_world():
@@ -49,19 +58,19 @@ def Readfiche(post_id):
     # Rendre le template HTML et transmettre les données
     return render_template('read_data.html', data=data)
 
-@app.route('/fiche_nom/<string:post_name>')
-def Readname(post_name):
-    if not est_authentifie():
-        # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
-        return redirect(url_for('authentification'))
-    elif request.method == 'POST':
-        conn = sqlite3.connect('database.db')
-        cursor = conn.cursor()
-        cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_name,))
-        data = cursor.fetchall()
-        conn.close()
-        # Rendre le template HTML et transmettre les données
-        return render_template('by_name.html', data=data)
+# @app.route('/fiche_nom/<string:post_name>')
+# def Readname(post_name):
+#     if not est_authentifie():
+#         # Rediriger vers la page d'authentification si l'utilisateur n'est pas authentifié
+#         return redirect(url_for('authentification'))
+#     elif request.method == 'POST':
+#         conn = sqlite3.connect('database.db')
+#         cursor = conn.cursor()
+#         cursor.execute('SELECT * FROM clients WHERE nom = ?', (post_name,))
+#         data = cursor.fetchall()
+#         conn.close()
+#         # Rendre le template HTML et transmettre les données
+#         return render_template('by_name.html', data=data)
 
 @app.route('/consultation/')
 def ReadBDD():
@@ -91,6 +100,35 @@ def enregistrer_client():
     conn.close()
     return redirect('/consultation/')  # Rediriger vers la page d'accueil après l'enregistrement
 
+
+@app.route('/fiche_nom/', methods=['GET', 'POST'])
+def fiche_par_nom():
+    if not est_authentifie_user():
+        return redirect(url_for('authentification'))
+
+    data = []
+    if request.method == 'POST':
+        try:
+            nom = request.form['nom']
+            conn = sqlite3.connect('database.db')
+            cursor = conn.cursor()
+            cursor.execute('SELECT * FROM clients WHERE nom = ?', (nom,))
+            data = cursor.fetchall()
+            conn.close()
+        except Exception as e:
+            return f"<h3>Erreur lors de la recherche : {e}</h3>"
+
+    return render_template('fiche_par_nom.html', data=data)
+
+@app.route('/logout_admin')
+def logout_admin():
+    session.pop('admin_auth', None)
+    return redirect(url_for('authentification'))
+
+@app.route('/logout_user')
+def logout_user():
+    session.pop('user_auth', None)
+    return redirect(url_for('authentification'))
 
                                                        
                                                                                 
