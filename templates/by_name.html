@@ -1,28 +1,30 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Clients</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche par nom</title>
 </head>
 <body>
-    <h1>Liste des Clients</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Création</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Adresse</th>
-        </tr>
-        {% for row in data %}
-        <tr>
-            <td>{{ row[0] }}</td>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
-            <td>{{ row[3] }}</td>
-            <td>{{ row[4] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <h2>Recherche d'un client par nom</h2>
+
+    <!-- Formulaire de recherche -->
+    <form method="post">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+        <input type="submit" value="Rechercher">
+    </form>
+
+    <!-- Affichage des résultats -->
+    {% if data %}
+        <h3>Résultat(s) :</h3>
+        <ul>
+            {% for row in data %}
+                <li>{{ row }}</li>
+            {% endfor %}
+        </ul>
+    {% elif request.method == 'POST' %}
+        <p>Aucun client trouvé pour ce nom.</p>
+    {% endif %}
 </body>
 </html>
