@@ -143,7 +143,7 @@ jobs:
 Vous avez besoin de créer des secrets dans GitHUB afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre repository (vos login, clés, dns, etc..). 
 -----
 **Procédure :**  
-1 Settings >Secret and Variable> Action> New Repository Secret
+1 Settings >Secrets and Variables> Action> New Repository Secret
 2 Name: Donner un nom au choix (par exemple "FTP_PASSWORD")
 3 Secret : Mettre le mot de passe present dans le fichier main.yml
 4 Cliquer sur "Add Secret"
